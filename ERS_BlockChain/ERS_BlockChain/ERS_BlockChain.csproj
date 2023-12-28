@@ -43,6 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Block\Interfaces\IBlockIDSetter.cs" />
+    <Compile Include="Application\Block\Interfaces\IBlockCreator.cs" />
+    <Compile Include="Application\Block\Interfaces\IDataAppender.cs" />
+    <Compile Include="Application\Block\Interfaces\IHashGenerator.cs" />
+    <Compile Include="BusinessLogic\Block\BlockIDSetter.cs" />
+    <Compile Include="BusinessLogic\Block\BlockCreator.cs" />
+    <Compile Include="BusinessLogic\Block\DataAppender.cs" />
+    <Compile Include="BusinessLogic\Block\HashGenerator.cs" />
     <Compile Include="Domain\Entities\BlockEntity.cs" />
     <Compile Include="Domain\Entities\ClientEntity.cs" />
     <Compile Include="Domain\Entities\MinerEntity.cs" />
@@ -52,22 +60,20 @@
     <Compile Include="Domain\Singletons\SmartContractSingleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\ConversionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Functionality\Interfaces\BlockChain\" />
-    <Folder Include="Functionality\Interfaces\Block\" />
-    <Folder Include="Functionality\Interfaces\Client\" />
-    <Folder Include="Functionality\Interfaces\Miner\" />
-    <Folder Include="Functionality\Interfaces\SmartContract\" />
-    <Folder Include="ImplementationTesting\" />
-    <Folder Include="Implementation\BlockChain\" />
-    <Folder Include="Implementation\Block\" />
-    <Folder Include="Implementation\Client\" />
-    <Folder Include="Implementation\Miner\" />
-    <Folder Include="Implementation\SmartContract\" />
+    <Folder Include="ApplicationTest\" />
+    <Folder Include="Application\Client\" />
+    <Folder Include="Application\Miner\" />
+    <Folder Include="BusinessLogicTest\" />
+    <Folder Include="BusinessLogic\BlockChain\" />
+    <Folder Include="BusinessLogic\Client\" />
+    <Folder Include="BusinessLogic\Miner\" />
+    <Folder Include="BusinessLogic\SmartContract\" />
     <Folder Include="UIHandlers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
