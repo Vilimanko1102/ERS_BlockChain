@@ -13,6 +13,8 @@ namespace ERS_BlockChain.Domain.Entities
 		public string PreviousID { get; set; }
 		public List<Data> BlockData { get; set; }
 
+		public int Nonce { get; set; }
+
 		private static int numOfBlocks = 0;
 
 		//Dilema: Da li je nonce polje klase Block ili ima veze sa Minerom?
@@ -32,6 +34,7 @@ namespace ERS_BlockChain.Domain.Entities
 				//TODO
 			}
 			numOfBlocks++;
+			Nonce = 0;
 		}
 
 		public override string ToString()
