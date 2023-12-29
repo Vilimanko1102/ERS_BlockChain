@@ -60,6 +60,11 @@
     <Compile Include="Domain\Singletons\SmartContractSingleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIHandlers\ClientUIHandler.cs" />
+    <Compile Include="UIHandlers\Interfaces\IUIHandler.cs" />
+    <Compile Include="UIHandlers\MainUIHandler.cs" />
+    <Compile Include="UIHandlers\MinerUIHandler.cs" />
+    <Compile Include="UIHandlers\SmartContractUIHandler.cs" />
     <Compile Include="Utility\ConversionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,7 +79,6 @@
     <Folder Include="BusinessLogic\Client\" />
     <Folder Include="BusinessLogic\Miner\" />
     <Folder Include="BusinessLogic\SmartContract\" />
-    <Folder Include="UIHandlers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
