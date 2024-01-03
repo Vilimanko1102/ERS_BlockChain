@@ -1,4 +1,6 @@
-﻿using ERS_BlockChain.UIHandlers.Interfaces;
+﻿using ERS_BlockChain.Application.Client;
+using ERS_BlockChain.BusinessLogic.Client;
+using ERS_BlockChain.UIHandlers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ namespace ERS_BlockChain.UIHandlers
 {
 	public class SmartContractUIHandler : IUIHandler
 	{
+		
 		public void HandleUI()
 		{
 			string answer;
@@ -16,7 +19,7 @@ namespace ERS_BlockChain.UIHandlers
 			do
 			{
 				Console.WriteLine("Izaberite funkciju rada sa smart contract-om.");
-				Console.WriteLine("1 - Smart Contract method 1");
+				Console.WriteLine("1 - Registruj");
 				Console.WriteLine("2 - Smart Contract method 2");
 				Console.WriteLine("3 - Smart Contract method 3");
 				Console.WriteLine("x - Povratak na main menu.");

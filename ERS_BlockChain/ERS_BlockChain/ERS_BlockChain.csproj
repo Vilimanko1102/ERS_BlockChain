@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,10 +48,28 @@
     <Compile Include="Application\Block\Interfaces\IBlockCreator.cs" />
     <Compile Include="Application\Block\Interfaces\IDataAppender.cs" />
     <Compile Include="Application\Block\Interfaces\IHashGenerator.cs" />
+    <Compile Include="Application\Client\IBlockPrepareForValidationHandler.cs" />
+    <Compile Include="Application\Client\IClientRegisterDialogHandler.cs" />
+    <Compile Include="Application\Client\IClientRegisterHandler.cs" />
+    <Compile Include="Application\Client\IClientDataBufferHandler.cs" />
+    <Compile Include="Application\Client\IDataDeleteHandler.cs" />
+    <Compile Include="Application\Client\IDataSender.cs" />
+    <Compile Include="Application\Client\IFindClientByID.cs" />
+    <Compile Include="Application\Client\IGetClientIDDialogHandler.cs" />
+    <Compile Include="Application\Client\IMessageGetDialogHandler.cs" />
     <Compile Include="BusinessLogic\Block\BlockIDSetter.cs" />
     <Compile Include="BusinessLogic\Block\BlockCreator.cs" />
     <Compile Include="BusinessLogic\Block\DataAppender.cs" />
     <Compile Include="BusinessLogic\Block\HashGenerator.cs" />
+    <Compile Include="BusinessLogic\Client\ClientRegisterDialogHandler.cs" />
+    <Compile Include="BusinessLogic\Client\ClientRegisterHandler.cs" />
+    <Compile Include="BusinessLogic\Client\ClientDataBufferHandler.cs" />
+    <Compile Include="BusinessLogic\Client\DataDeleteHandler.cs" />
+    <Compile Include="BusinessLogic\Client\DataSender.cs" />
+    <Compile Include="BusinessLogic\Client\FindClientByIDQuery.cs" />
+    <Compile Include="BusinessLogic\Client\GetClientIDDialogHandler.cs" />
+    <Compile Include="BusinessLogic\Client\MessageGetDialogHandler.cs" />
+    <Compile Include="BusinessLogic\Client\PrepareForValidationHandler.cs" />
     <Compile Include="Domain\Entities\BlockEntity.cs" />
     <Compile Include="Domain\Entities\ClientEntity.cs" />
     <Compile Include="Domain\Entities\MinerEntity.cs" />
@@ -72,11 +91,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationTest\" />
-    <Folder Include="Application\Client\" />
     <Folder Include="Application\Miner\" />
+    <Folder Include="Application\SmartContract\" />
     <Folder Include="BusinessLogicTest\" />
     <Folder Include="BusinessLogic\BlockChain\" />
-    <Folder Include="BusinessLogic\Client\" />
     <Folder Include="BusinessLogic\Miner\" />
     <Folder Include="BusinessLogic\SmartContract\" />
   </ItemGroup>

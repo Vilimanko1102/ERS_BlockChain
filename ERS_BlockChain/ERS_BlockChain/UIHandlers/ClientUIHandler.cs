@@ -1,4 +1,8 @@
-﻿using ERS_BlockChain.UIHandlers.Interfaces;
+﻿using ERS_BlockChain.Application.Client;
+using ERS_BlockChain.BusinessLogic.Client;
+using ERS_BlockChain.Domain.Other;
+using ERS_BlockChain.Domain.Singletons;
+using ERS_BlockChain.UIHandlers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +13,10 @@ namespace ERS_BlockChain.UIHandlers
 {
 	public class ClientUIHandler : IUIHandler
 	{
+		private static readonly IClientRegisterHandler clientRegisterHandler = new ClientRegisterHandler();
+		private static readonly IClientDataBufferHandler clientDataBufferHandler = new ClientDataBufferHandler();
+		
+
 		public void HandleUI()
 		{
 			string answer;
@@ -16,9 +24,9 @@ namespace ERS_BlockChain.UIHandlers
 			do
 			{
 				Console.WriteLine("Izaberite funkciju rada sa klijentima.");
-				Console.WriteLine("1 - Client method 1");
-				Console.WriteLine("2 - Client method 2");
-				Console.WriteLine("3 - Client method 3");
+				Console.WriteLine("1 - Registruj novog klijenta");
+				Console.WriteLine("2 - Unesi poruku za slanje u bafer klijenta");
+				Console.WriteLine("3 - ");
 				Console.WriteLine("x - Povratak na main menu.");
                 Console.WriteLine();
 
@@ -29,13 +37,13 @@ namespace ERS_BlockChain.UIHandlers
                 switch (answer)
 				{
 					case "1":
-						//TODO: Client method 1
+						clientRegisterHandler.Handle();
 						break;
 					case "2":
-						//TODO: Client method 2
+						clientDataBufferHandler.SendToClientDataBuffer();
 						break;
 					case "3":
-						//TODO: Client method 3...
+						//TODO
 						break;
 					default:
 						break;

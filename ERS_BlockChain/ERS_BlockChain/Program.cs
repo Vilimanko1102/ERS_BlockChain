@@ -7,6 +7,7 @@ using ERS_BlockChain.UIHandlers;
 using ERS_BlockChain.Utility;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -20,7 +21,8 @@ namespace ERS_BlockChain
 		private static readonly MainUIHandler mainUIHandler = new MainUIHandler();	
 		static void Main(string[] args)
 		{
-			mainUIHandler.HandleUI();
+			
+            mainUIHandler.HandleUI();
         }
 	}
 }
