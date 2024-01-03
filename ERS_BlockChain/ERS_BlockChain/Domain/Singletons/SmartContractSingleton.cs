@@ -1,6 +1,9 @@
-﻿using ERS_BlockChain.Domain.Entities;
+﻿using ERS_BlockChain.Application.Block.Interfaces;
+using ERS_BlockChain.BusinessLogic.Block;
+using ERS_BlockChain.Domain.Entities;
 using ERS_BlockChain.Domain.Other;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +13,8 @@ namespace ERS_BlockChain.Domain.Singletons
 {
 	public class SmartContractSingleton 
 	{
+		private static IBlockCreator blockCreator = new BlockCreator();
+
 		private static SmartContractSingleton instance = null;
 
 		private SmartContractSingleton()
@@ -35,6 +40,9 @@ namespace ERS_BlockChain.Domain.Singletons
 		public List<ClientEntity> AllClients { get; set; }
 		public List<MinerEntity> AllMiners { get; set; }
 		public List<Data> PendingDataToValidate { get; set; }
+
+
+		public IBlockCreator BlockCreator { get { return blockCreator; } }
 
 
 

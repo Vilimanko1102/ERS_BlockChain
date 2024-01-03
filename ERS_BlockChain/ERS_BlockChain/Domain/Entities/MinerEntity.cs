@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace ERS_BlockChain.Domain.Entities
 {
 	public class MinerEntity : IEntity<int>
 	{
 		public int MinerId { get; set; }
-		public double BitcoinAmount { get; set; }
-
+		public double BitcoinAmount { get; set; } 
+		
 		public MinerEntity() { }
 
 		public MinerEntity(int minerId)
