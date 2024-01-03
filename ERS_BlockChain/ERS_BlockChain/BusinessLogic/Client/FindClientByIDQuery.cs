@@ -12,7 +12,6 @@ namespace ERS_BlockChain.BusinessLogic.Client
 {
 	public class FindClientByIDQuery : IFindClientByID
 	{
-		private static readonly IGetClientIDDialogHandler getClientIDDialogHandler = new GetClientIDDialogHandler();
 		public ClientEntity Find(int id)
 		{
 			ClientEntity setToReturn = null;

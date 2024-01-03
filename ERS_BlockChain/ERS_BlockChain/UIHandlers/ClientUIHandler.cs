@@ -15,7 +15,8 @@ namespace ERS_BlockChain.UIHandlers
 	{
 		private static readonly IClientRegisterHandler clientRegisterHandler = new ClientRegisterHandler();
 		private static readonly IClientDataBufferHandler clientDataBufferHandler = new ClientDataBufferHandler();
-		
+		private static readonly IValidationPreparementHandler validationPreparementHandler = new ValidationPreparementaHandler();
+		private static readonly IDataSender dataSender = new DataSender();
 
 		public void HandleUI()
 		{
@@ -26,7 +27,7 @@ namespace ERS_BlockChain.UIHandlers
 				Console.WriteLine("Izaberite funkciju rada sa klijentima.");
 				Console.WriteLine("1 - Registruj novog klijenta");
 				Console.WriteLine("2 - Unesi poruku za slanje u bafer klijenta");
-				Console.WriteLine("3 - ");
+				Console.WriteLine("3 - Prenos podataka iz bafera klijenta u bafer SmartContracta");
 				Console.WriteLine("x - Povratak na main menu.");
                 Console.WriteLine();
 
@@ -43,7 +44,7 @@ namespace ERS_BlockChain.UIHandlers
 						clientDataBufferHandler.SendToClientDataBuffer();
 						break;
 					case "3":
-						//TODO
+						if (dataSender.SendData()) { Console.WriteLine(validationPreparementHandler.PrepareForValidation()); }
 						break;
 					default:
 						break;
