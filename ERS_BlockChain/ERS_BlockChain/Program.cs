@@ -21,7 +21,6 @@ namespace ERS_BlockChain
 		private static readonly MainUIHandler mainUIHandler = new MainUIHandler();	
 		static void Main(string[] args)
 		{
-			
             mainUIHandler.HandleUI();
         }
 	}

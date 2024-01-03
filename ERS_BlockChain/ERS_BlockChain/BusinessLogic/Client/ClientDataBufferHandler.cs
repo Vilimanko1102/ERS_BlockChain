@@ -25,7 +25,7 @@ namespace ERS_BlockChain.BusinessLogic.Client
 
 			client.DataToSend.Add(new Data(id, messageGetDialogHandler.GetMessage()));
             Console.WriteLine("Poruka ubacena u bafer klijenta " + id + ".");
-            Console.WriteLine("Bafer klijenta 5 izgleda ovako: ");
+            Console.WriteLine("Bafer klijenta " + id + " izgleda ovako: ");
 			foreach(Data d in client.DataToSend) { Console.WriteLine(d); }
         }
 	}
