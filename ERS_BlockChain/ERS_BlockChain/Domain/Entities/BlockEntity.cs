@@ -15,11 +15,22 @@ namespace ERS_BlockChain.Domain.Entities
 
 		public int Nonce { get; set; }
 
+		public bool Validated { get; set; }
+
 		private static int numOfBlocks = 0;
 
 		//Dilema: Da li je nonce polje klase Block ili ima veze sa Minerom?
 
 		public BlockEntity() { }
+
+		public BlockEntity(BlockEntity block)
+		{
+			SelfID = block.SelfID;
+			PreviousID = block.PreviousID;
+			BlockData = block.BlockData;
+			Nonce = block.Nonce;
+			Validated = block.Validated;
+		}
 
 		public BlockEntity(List<Data> blockData)
 		{
@@ -35,6 +46,7 @@ namespace ERS_BlockChain.Domain.Entities
 			}
 			numOfBlocks++;
 			Nonce = 0;
+			Validated = false;
 		}
 
 		public override string ToString()

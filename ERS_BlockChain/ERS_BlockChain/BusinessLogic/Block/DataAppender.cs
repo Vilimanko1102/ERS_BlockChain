@@ -18,6 +18,9 @@ namespace ERS_BlockChain.BusinessLogic.Block
 		{
 			this.Block = block;
 		}
+
+		public DataAppender() { }
+
 		public string AppendAllData()
 		{
 			StringBuilder sb = new StringBuilder();

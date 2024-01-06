@@ -32,5 +32,28 @@ namespace ERS_BlockChain.Domain.Singletons
 
 		public LinkedList<BlockEntity> BlockChain { get; set; }
 
+
+		public void Add(BlockEntity entity)
+		{
+			if(!BlockChain.Contains(entity))
+			{
+				BlockChain.AddLast(entity);
+			}
+		}
+
+		public override string ToString()
+		{
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append("TRENUTNO STANJE BLOCKCHAINA: \n\n");
+			foreach (BlockEntity block in BlockChain)
+			{
+				sb.Append(block);
+				sb.Append("\n");
+			}
+
+			return sb.ToString();
+		}
+
 	}
 }

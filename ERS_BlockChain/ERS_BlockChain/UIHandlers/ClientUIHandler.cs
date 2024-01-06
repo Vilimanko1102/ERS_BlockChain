@@ -1,5 +1,8 @@
 ﻿using ERS_BlockChain.Application.Client;
+using ERS_BlockChain.Application.Miner;
 using ERS_BlockChain.BusinessLogic.Client;
+using ERS_BlockChain.BusinessLogic.Miner;
+using ERS_BlockChain.Domain.Entities;
 using ERS_BlockChain.Domain.Other;
 using ERS_BlockChain.Domain.Singletons;
 using ERS_BlockChain.UIHandlers.Interfaces;
@@ -16,6 +19,9 @@ namespace ERS_BlockChain.UIHandlers
 		private static readonly IClientRegisterHandler clientRegisterHandler = new ClientRegisterHandler();
 		private static readonly IClientDataBufferHandler clientDataBufferHandler = new ClientDataBufferHandler();
 		private static readonly IValidationPreparementHandler validationPreparementHandler = new ValidationPreparementaHandler();
+		private static readonly IValidationStarter validationStarter = new ValidationStarter();
+		private static readonly IValidationCompleteHandler validationCompleteHandler = new ValidationCompleteHandler();
+		private static readonly IMainThreadPauseHandler mainThreadPauseHandler = new MainThreadPauseHandler();
 		private static readonly IDataSender dataSender = new DataSender();
 
 		public void HandleUI()
@@ -44,7 +50,13 @@ namespace ERS_BlockChain.UIHandlers
 						clientDataBufferHandler.SendToClientDataBuffer();
 						break;
 					case "3":
-						if (dataSender.SendData()) { Console.WriteLine(validationPreparementHandler.PrepareForValidation()); }
+						if (dataSender.SendData()) 
+						{
+							BlockEntity blockToValidate = validationPreparementHandler.PrepareForValidation();
+							validationStarter.StartValidation(blockToValidate);
+							mainThreadPauseHandler.Pause();
+							validationCompleteHandler.Handle();
+						}
 						break;
 					default:
 						break;

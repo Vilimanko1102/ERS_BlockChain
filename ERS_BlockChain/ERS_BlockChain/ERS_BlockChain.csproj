@@ -57,6 +57,17 @@
     <Compile Include="Application\Client\IGetClientIDDialogHandler.cs" />
     <Compile Include="Application\Client\IMessageGetDialogHandler.cs" />
     <Compile Include="Application\Client\IValidationPreparementHandler.cs" />
+    <Compile Include="Application\Miner\IBitcoinAssigner.cs" />
+    <Compile Include="Application\Miner\IBlockChainUpdateHandler.cs" />
+    <Compile Include="Application\Miner\IMainThreadPauseHandler.cs" />
+    <Compile Include="Application\Miner\IMinerRegisterDialogHandler.cs" />
+    <Compile Include="Application\Miner\IMinerRegisterHandler.cs" />
+    <Compile Include="Application\Miner\ITargetStringBuilder.cs" />
+    <Compile Include="Application\Miner\IThreadRefreshHandler.cs" />
+    <Compile Include="Application\Miner\IThreadStopper.cs" />
+    <Compile Include="Application\Miner\IValidationCompleteHandler.cs" />
+    <Compile Include="Application\Miner\IValidationHandler.cs" />
+    <Compile Include="Application\Miner\IValidationStarter.cs" />
     <Compile Include="BusinessLogic\Block\BlockIDSetter.cs" />
     <Compile Include="BusinessLogic\Block\BlockCreator.cs" />
     <Compile Include="BusinessLogic\Block\DataAppender.cs" />
@@ -70,9 +81,21 @@
     <Compile Include="BusinessLogic\Client\GetClientIDDialogHandler.cs" />
     <Compile Include="BusinessLogic\Client\MessageGetDialogHandler.cs" />
     <Compile Include="BusinessLogic\Client\ValidationPreparementHandler.cs" />
+    <Compile Include="BusinessLogic\Miner\BitcoinAssigner.cs" />
+    <Compile Include="BusinessLogic\Miner\BlockChainUpdateHandler.cs" />
+    <Compile Include="BusinessLogic\Miner\MainThreadPauseHandler.cs" />
+    <Compile Include="BusinessLogic\Miner\MinerRegisterDialogHandler.cs" />
+    <Compile Include="BusinessLogic\Miner\MinerRegisterHandler.cs" />
+    <Compile Include="BusinessLogic\Miner\TargetStringBuilder.cs" />
+    <Compile Include="BusinessLogic\Miner\ThreadRefreshHandler.cs" />
+    <Compile Include="BusinessLogic\Miner\ThreadStopper.cs" />
+    <Compile Include="BusinessLogic\Miner\ValidationCompleteHandler.cs" />
+    <Compile Include="BusinessLogic\Miner\ValidationHandler.cs" />
+    <Compile Include="BusinessLogic\Miner\ValidationStarter.cs" />
     <Compile Include="Domain\Entities\BlockEntity.cs" />
     <Compile Include="Domain\Entities\ClientEntity.cs" />
     <Compile Include="Domain\Entities\MinerEntity.cs" />
+    <Compile Include="Domain\Exceptions\NoMinersToValidateException.cs" />
     <Compile Include="Domain\IEntity.cs" />
     <Compile Include="Domain\Other\Data.cs" />
     <Compile Include="Domain\Singletons\BlockChainSingleton.cs" />
@@ -91,11 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationTest\" />
-    <Folder Include="Application\Miner\" />
     <Folder Include="Application\SmartContract\" />
     <Folder Include="BusinessLogicTest\" />
     <Folder Include="BusinessLogic\BlockChain\" />
-    <Folder Include="BusinessLogic\Miner\" />
     <Folder Include="BusinessLogic\SmartContract\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

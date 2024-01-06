@@ -1,7 +1,10 @@
-﻿using ERS_BlockChain.Domain.Entities;
+﻿using ERS_BlockChain.Application.Miner;
+using ERS_BlockChain.BusinessLogic.Miner;
+using ERS_BlockChain.Domain.Entities;
 using ERS_BlockChain.UIHandlers.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,9 +14,7 @@ namespace ERS_BlockChain.UIHandlers
 {
 	public class MinerUIHandler : IUIHandler
 	{
-		private static int i = 0;
-		public List<Thread> MinerThreads { get; set; } = new List<Thread>();
-		public List<MinerEntity> MinerEntities { get; set; } = new List<MinerEntity>();
+		private static readonly IMinerRegisterHandler minerRegisterHandler = new MinerRegisterHandler();
 		public void HandleUI()
 		{
 			string answer;
@@ -21,7 +22,7 @@ namespace ERS_BlockChain.UIHandlers
 			do
 			{
 				Console.WriteLine("Izaberite funkciju rada sa minerima.");
-				Console.WriteLine("1 - Kreiranje jednog minera.");
+				Console.WriteLine($"1 - Kreiranje jednog minera (maksimalno u sistemu sme biti {ConfigurationManager.AppSettings["MaxNumOfMiners"]}).");
 				Console.WriteLine("2 - Miner method 2");
 				Console.WriteLine("3 - Miner method 3");
 				Console.WriteLine("x - Povratak na main menu.");
@@ -34,7 +35,7 @@ namespace ERS_BlockChain.UIHandlers
                 switch (answer)
 				{
 					case "1":
-	
+						minerRegisterHandler.Register();
 						break;
 					case "2":
 						//TODO: Miner method 2
