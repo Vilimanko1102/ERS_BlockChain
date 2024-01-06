@@ -4,6 +4,7 @@ using ERS_BlockChain.Domain.Other;
 using ERS_BlockChain.Domain.Singletons;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace ERS_BlockChain.BusinessLogic.Client
 {
 	public class DataSender : IDataSender
 	{
-		private const int MAX_VELICINA_BLOKA = 2;
+		
 
 		private static readonly IGetClientIDDialogHandler getClientIDDialogHandler = new GetClientIDDialogHandler();
 		private static readonly FindClientByIDQuery findClientByIDQuery = new FindClientByIDQuery();
@@ -27,7 +28,7 @@ namespace ERS_BlockChain.BusinessLogic.Client
 
 			foreach (Data data in client.DataToSend)
 			{
-				if (SmartContractSingleton.Instance.PendingDataToValidate.Count < MAX_VELICINA_BLOKA)
+				if (SmartContractSingleton.Instance.PendingDataToValidate.Count < int.Parse(ConfigurationManager.AppSettings["MaxBlockSize"]))
 				{
 					SmartContractSingleton.Instance.PendingDataToValidate.Add(data);
 					dataDeleteHandler.DataToDelete.Add(data);

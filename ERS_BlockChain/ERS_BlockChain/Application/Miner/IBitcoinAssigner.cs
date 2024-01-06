@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERS_BlockChain.Application.Block.Interfaces
+namespace ERS_BlockChain.Application.Miner
 {
-	public interface IDataAppender
+	internal interface IBitcoinAssigner
 	{
-		BlockEntity Block { get; set; }
-		string AppendAllData();
+		void Award(MinerEntity miner);
 	}
 }
