@@ -1,5 +1,7 @@
 ﻿using ERS_BlockChain.Application.Client;
+using ERS_BlockChain.Application.SmartContract;
 using ERS_BlockChain.BusinessLogic.Client;
+using ERS_BlockChain.BusinessLogic.SmartContract;
 using ERS_BlockChain.UIHandlers.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,9 @@ namespace ERS_BlockChain.UIHandlers
 {
 	public class SmartContractUIHandler : IUIHandler
 	{
-		
+		private static readonly IRegistratedClientsInfoPrinter registratedClientsInfoPrinter = new RegistratedClientsInfoPrinter();
+		private static readonly IRegistratedMinersInfoPrinter registratedMinersInfoPrinter = new RegistratedMinersInfoPrinter();
+		private static readonly IBlockChainInfoPrinter blockChainInfoPrinter = new BlockChainInfoPrinter();
 		public void HandleUI()
 		{
 			string answer;
@@ -19,9 +23,9 @@ namespace ERS_BlockChain.UIHandlers
 			do
 			{
 				Console.WriteLine("Izaberite funkciju rada sa smart contract-om.");
-				Console.WriteLine("1 - Registruj");
-				Console.WriteLine("2 - Smart Contract method 2");
-				Console.WriteLine("3 - Smart Contract method 3");
+				Console.WriteLine("1 - Ispisi informacije o klinetima");
+				Console.WriteLine("2 - Ispisi informacije o minerima");
+				Console.WriteLine("3 - ispisi informacije o BLockChainu");
 				Console.WriteLine("x - Povratak na main menu.");
                 Console.WriteLine();
 
@@ -32,13 +36,13 @@ namespace ERS_BlockChain.UIHandlers
                 switch (answer)
 				{
 					case "1":
-						//TODO: SC method 1
+						registratedClientsInfoPrinter.PrintInfo();
 						break;
 					case "2":
-						//TODO: SC method 2
+						registratedMinersInfoPrinter.PrintInfo();
 						break;
 					case "3":
-						//TODO: SC method 3...
+						blockChainInfoPrinter.PrintInfo();
 						break;
 					default:
 						break;

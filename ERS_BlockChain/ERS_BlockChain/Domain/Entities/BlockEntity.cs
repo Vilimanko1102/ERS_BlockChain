@@ -17,9 +17,9 @@ namespace ERS_BlockChain.Domain.Entities
 
 		public bool Validated { get; set; }
 
-		private static int numOfBlocks = 0;
+		public static int NumOfBlocks = 0;
 
-		//Dilema: Da li je nonce polje klase Block ili ima veze sa Minerom?
+	
 
 		public BlockEntity() { }
 
@@ -35,16 +35,7 @@ namespace ERS_BlockChain.Domain.Entities
 		public BlockEntity(List<Data> blockData)
 		{
 			BlockData = blockData;
-
-			if(numOfBlocks == 0)
-			{
-				PreviousID = "///";
-			}
-			else
-			{
-				//TODO
-			}
-			numOfBlocks++;
+			NumOfBlocks++;
 			Nonce = 0;
 			Validated = false;
 		}
@@ -52,6 +43,7 @@ namespace ERS_BlockChain.Domain.Entities
 		public override string ToString()
 		{
 			StringBuilder sb = new StringBuilder();
+			sb.Append("Block Info:");
 			sb.Append("SelfID: " + SelfID + "\n");
 			sb.Append("PreviousID: " + PreviousID + "\n");
 			foreach (Data data in BlockData)

@@ -53,10 +53,12 @@ namespace ERS_BlockChain.UIHandlers
 						if (dataSender.SendData()) 
 						{
 							BlockEntity blockToValidate = validationPreparementHandler.PrepareForValidation();
-							validationStarter.StartValidation(blockToValidate);
+                            Console.WriteLine(blockToValidate);
+                            validationStarter.StartValidation(blockToValidate);
 							mainThreadPauseHandler.Pause();
 							validationCompleteHandler.Handle();
-						}
+                            Console.WriteLine(BlockChainSingleton.Instance);
+                        }
 						break;
 					default:
 						break;

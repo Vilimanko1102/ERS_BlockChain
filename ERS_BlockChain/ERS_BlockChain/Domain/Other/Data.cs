@@ -22,7 +22,7 @@ namespace ERS_BlockChain.Domain.Other
 
 		public override string ToString()
 		{
-			return string.Format("Client {0} sent \"{1}\" at {2}", ClientID, Message, DateOfCreation);
+			return string.Format("Client {0} sent \"{1}\" at {2}\n", ClientID, Message, DateOfCreation);
 		}
 	}
 }
