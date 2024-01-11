@@ -11,11 +11,13 @@ namespace ERS_BlockChain.BusinessLogic.Block
 {
 	public class BlockCreator : IBlockCreator
 	{
+		IBlockPreviousIDSetter blockPreviousIDSetter = new BlockPreviousIDSetter();
 		public BlockEntity InitializeBlock(List<Data> data)
 		{
 			BlockEntity block = new BlockEntity(data);
 			IBlockIDSetter blockIDSetter = new BlockIDSetter(new HashGenerator(new DataAppender(block)));
 			blockIDSetter.SetBlockID();
+			blockPreviousIDSetter.SetPreviousID(block);
 			return block;
 		}
 	}

@@ -37,6 +37,7 @@ namespace ERS_BlockChain.BusinessLogic.Miner
 				if (!copy.Validated)
 				{
 					block.SelfID = copy.SelfID;
+					block.Nonce = copy.Nonce;
 					BlockChainSingleton.Instance.BlockChain.AddLast(block);
 					Console.WriteLine("Validacija za blok je zavrsena.");
 					block.Validated = true;

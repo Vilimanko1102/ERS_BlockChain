@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Application\Block\Interfaces\IBlockIDSetter.cs" />
     <Compile Include="Application\Block\Interfaces\IBlockCreator.cs" />
+    <Compile Include="Application\Block\Interfaces\IBlockPreviousIDSetter.cs" />
     <Compile Include="Application\Block\Interfaces\IDataAppender.cs" />
     <Compile Include="Application\Block\Interfaces\IHashGenerator.cs" />
     <Compile Include="Application\Client\IClientRegisterDialogHandler.cs" />
@@ -68,8 +69,12 @@
     <Compile Include="Application\Miner\IValidationCompleteHandler.cs" />
     <Compile Include="Application\Miner\IValidationHandler.cs" />
     <Compile Include="Application\Miner\IValidationStarter.cs" />
+    <Compile Include="Application\SmartContract\IBlockChainInfoPrinter.cs" />
+    <Compile Include="Application\SmartContract\IRegistratedClientsInfoPrinter.cs" />
+    <Compile Include="Application\SmartContract\IRegistratedMinersInfoPrinter.cs" />
     <Compile Include="BusinessLogic\Block\BlockIDSetter.cs" />
     <Compile Include="BusinessLogic\Block\BlockCreator.cs" />
+    <Compile Include="BusinessLogic\Block\BlockPreviousIDSetter.cs" />
     <Compile Include="BusinessLogic\Block\DataAppender.cs" />
     <Compile Include="BusinessLogic\Block\HashGenerator.cs" />
     <Compile Include="BusinessLogic\Client\ClientRegisterDialogHandler.cs" />
@@ -92,6 +97,9 @@
     <Compile Include="BusinessLogic\Miner\ValidationCompleteHandler.cs" />
     <Compile Include="BusinessLogic\Miner\ValidationHandler.cs" />
     <Compile Include="BusinessLogic\Miner\ValidationStarter.cs" />
+    <Compile Include="BusinessLogic\SmartContract\BlockChainInfoPrinter.cs" />
+    <Compile Include="BusinessLogic\SmartContract\RegistratedClientsInfoPrinter.cs" />
+    <Compile Include="BusinessLogic\SmartContract\RegistratedMinersInfoPrinter.cs" />
     <Compile Include="Domain\Entities\BlockEntity.cs" />
     <Compile Include="Domain\Entities\ClientEntity.cs" />
     <Compile Include="Domain\Entities\MinerEntity.cs" />
@@ -114,10 +122,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationTest\" />
-    <Folder Include="Application\SmartContract\" />
     <Folder Include="BusinessLogicTest\" />
     <Folder Include="BusinessLogic\BlockChain\" />
-    <Folder Include="BusinessLogic\SmartContract\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

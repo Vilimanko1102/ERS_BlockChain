@@ -16,7 +16,17 @@ namespace ERS_BlockChain.BusinessLogic.Miner
 		{
 			if(SmartContractSingleton.Instance.AllMiners.Count == 0)
 			{
-				throw new NoMinersToValidateException("Nema registrovanih majnera pa je validacija nemoguca.");
+				try
+				{
+					throw new NoMinersToValidateException("FATALNA GRESKA: Nema registrovanih majnera pa je validacija nemoguca. Aplikacija ce se iskljuciti.");
+				}
+				catch(NoMinersToValidateException e)
+				{
+                    Console.WriteLine(e.Message);
+					Console.Read();
+					Environment.Exit(1);
+                }
+				
             }
 
 			foreach(MinerEntity miner in SmartContractSingleton.Instance.AllMiners)
